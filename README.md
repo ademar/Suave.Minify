@@ -1,7 +1,7 @@
 # Suave.Minify
 A minify WebPart for Suave
 
-In the following example the combinator `jsbundle "path"` compress all javascript files in the folder "js" and concatenates them in a single response.
+In the following example the combinator `jsbundle file-list` compress all javascript files in the list and concatenates them into a single response.
 
 ```fsharp
 open Suave
