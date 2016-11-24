@@ -37,10 +37,7 @@ let mimify path filter =
       | exp ->
         failwithf "error minifying %s : %s" file exp.Message
   
-  let str = output.ToString()
-  Console.WriteLine("bundle.Length = {0}",str) 
-  str
-
+  output.ToString()
 
 let bundle path filter : WebPart =
   context(fun ctx ->
