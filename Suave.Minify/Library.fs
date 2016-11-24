@@ -26,8 +26,11 @@ let mimify path filter =
   for file in Directory.EnumerateFiles(path,filter) do
     try
       let txt = File.ReadAllText(file)
-      let compressed = compressor.Compress(txt)
-      output.Append (compressed)  |> ignore
+      if file.Contains(".min.") then
+        output.Append (txt)  |> ignore
+      else
+        let compressed = compressor.Compress(txt)
+        output.Append (compressed)  |> ignore
     with
       | :? EcmaScript.NET.EcmaScriptException as exp ->
         failwithf "error minifying %s, line no: %d, error: %s" file exp.LineNumber exp.Message
