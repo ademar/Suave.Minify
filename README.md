@@ -8,7 +8,7 @@ open Suave
 open Suave.Minify
 
 let part : WebPart =
-  Filters.path "/jsbundle" >=> jsBundle ["/js/jquery-3.1.1.min.js"; "/js/jquery.json.min.js"; "js/chess.js"; "js/chessboard-0.3.0.js"; "js/app.js"]
+  Filters.path "/jsbundle" >=> jsBundle ["/js/jquery-3.1.1.min.js"; "js/chess.js"; "js/app.js"]
 ```
 
 *Depends on YUICompressor.NET
