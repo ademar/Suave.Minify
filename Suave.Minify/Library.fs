@@ -1,6 +1,7 @@
 ﻿module Suave.Minify
 
 open System
+open System.Collections.Concurrent
 open System.IO
 open System.Text
 
@@ -12,7 +13,8 @@ open Yahoo.Yui.Compressor
 let private jsCompressor  = JavaScriptCompressor()
 let private cssCompressor = CssCompressor()
 
-let mimify files filter =
+
+let compress files filter =
   let output = new StringBuilder()
 
   let compressor =
@@ -39,6 +41,13 @@ let mimify files filter =
   
   output.ToString()
 
+let cache = new ConcurrentDictionary<string, Lazy<string>>()
+
+let mimify (files: string list) filter =
+  let key = String.Concat files
+  let result = cache.GetOrAdd(key, fun s -> lazy (compress files filter))
+  result.Force()
+
 let bundlePart files filter : WebPart =
   context(fun ctx ->
     match ctx.request.header "if-modified-since" with
@@ -58,7 +67,7 @@ let bundlePart files filter : WebPart =
 
 let bundle files filter =
   context(fun ctx ->
-    bundlePart (Seq.map (fun x -> Files.resolvePath ctx.runtime.homeDirectory x) files) filter
+    bundlePart (List.map (fun x -> Files.resolvePath ctx.runtime.homeDirectory x) files) filter
   )
 
 let jsBundle path : WebPart =
