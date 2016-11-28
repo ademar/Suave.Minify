@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Suave.Minify</id>
+    <version>$version$</version>
+    <title>Suave.Minify</title>
+    <authors>Ademar Gonzalez</authors>
+    <owners>Ademar Gonzalez</owners>
+    <licenseUrl>https://raw.githubusercontent.com/ademar/Suave.Minify/master/COPYING</licenseUrl>
+    <projectUrl>https://github.com/ademar/Suave.Minify</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A minify WebPart for Suave</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>suave minify web</tags>
+  </metadata>
+</package>
