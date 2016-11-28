@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Suave.Minify</id>
-    <version>$version$</version>
+    <version>1.0.0-alpha1</version>
     <title>Suave.Minify</title>
     <authors>Ademar Gonzalez</authors>
     <owners>Ademar Gonzalez</owners>
