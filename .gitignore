@@ -21,8 +21,6 @@ AssemblyVersionInfo.fs
 paket.exe
 *.lock
 !paket.lock
-*.nuspec
-
 .DS_Store
 *.bak
 paket-files/
